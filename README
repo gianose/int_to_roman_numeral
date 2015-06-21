@@ -1,0 +1,32 @@
+DESCRIPTION:
+  Provides the user with a means of converting an interger value such a "1"
+  into it's roman numeral counter part, in the case of "1", "I" is the outcome.
+  In Addition it provides the user with a means of defining a customer set of roman numerals.
+ 
+USAGE:
+  ./int_to_rn.rb [options] [input] e.g ./int_to_rn.rb -i 1
+
+More details on usage can be attained by executing `ini_to_rn.rb` with the -h hook
+	./ini_to_rn.rb -h  
+
+NOTE:
+  When defining custom roman numerals be aware of the following:
+   * You unable to utilize "V" or "I" as user defined roman numerals.
+   * You can utilize any other value from the base set (see below) of
+     roman numerals but a replacement most be provided.
+       e.g. ./int_to_rn.rb -s 'X=50, K=10'
+   * When assiging values to your custom roman numerals be aware that you
+     are unable to assign values outside the base set
+       [10, 50, 100, 500, 1000, 5000]
+  In regards to decimal number converstion, the following steps are taken
+  to produce a Roman numeral representation.
+   * The float is converted int a rational number.
+   * Following the converstion it is determine whether or not the fraction is a proper or inproper fraction.
+   * If it is determine that the fraction is an inproper fraction, it is converted into a mixed fraction.
+   * The rational number or Mixed fraction is then broken up into it various parts 'whole number', 'numerator', and 'denominator'.
+   * Each part is then converted in to Roman numerals and presented in the following fashion where as a
+     period '.' separates the whole number from the fraction and a colon ':' separates the 'numerator',
+     and 'denominator'.
+       e.g 1.25 == I.I:IV
+       e.g .5 == I:II
+
